@@ -1,0 +1,57 @@
+#%RAML 1.0
+title: <YOUR_TITLE>
+version: v1
+
+types:
+  Part:
+    type: object
+    properties:
+      "_id":
+        type: object
+        properties:
+          "$oid": string
+      "name": string
+      "description": string
+      "availability":
+        type: object
+        properties:
+          "$numberInt": string
+  WebhookData:
+    type: object
+    properties:
+      "_id":
+        type: object
+        properties:
+          "_data": string
+      "operationType": string
+      "clusterTime":
+        type: "object"
+        properties:
+          "$timestamp":
+            type: object
+            properties:
+              "t": number
+              "i": number
+      "fullDocument":
+        type: Part
+      "ns":
+        type: object
+        properties:
+          "db": string
+          "coll": string
+      "documentKey":
+        type: object
+      "updateDescription":
+        type: object
+        properties:
+          "updatedFields": object
+          "removedFields": array
+          
+/:
+  post:
+    body:
+      application/json:
+        type: WebhookData
+    responses:
+      204:
+        description: "We good fam"
