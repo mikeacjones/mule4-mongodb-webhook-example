@@ -1,5 +1,18 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <types:mule xmlns:types="http://www.mulesoft.org/schema/mule/types">
-  <types:catalog/>
-  <types:enrichment select="#9fccdefe-cf65-4b47-9a30-3f90bcec20cf"/>
+  <types:catalog>
+    <types:type name="boolean" format="java">
+      <types:shape format="raml"><![CDATA[#%RAML 1.0 DataType
+type: boolean]]></types:shape>
+    </types:type>
+  </types:catalog>
+  <types:enrichment select="#9fccdefe-cf65-4b47-9a30-3f90bcec20cf">
+    <types:processor-declaration>
+      <types:output-event>
+        <types:variables>
+          <types:variable name="hasAvailability" type="boolean"/>
+        </types:variables>
+      </types:output-event>
+    </types:processor-declaration>
+  </types:enrichment>
 </types:mule>
