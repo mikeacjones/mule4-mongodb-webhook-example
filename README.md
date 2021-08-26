@@ -1,5 +1,7 @@
 # Example using Atlas MongoDB Trigger to call webhook
 
+![Flow Diagram](.images/mongodb-webhook.svg)
+
 Example script for trigger:
 
 ```javascript
